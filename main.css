@@ -1,0 +1,26 @@
+main {
+    min-height: 100vh;
+}
+
+.bg-1 {
+    background-color: #23395d;
+}
+.bg-2 {
+    background-color: #203354;
+}
+.bg-3 {
+    background-color: #1c2e4a;
+}
+.bg-4 {
+    background-color: #192841;
+}
+.bg-5 {
+    background-color: #152238;
+}
+
+.bg-6 {
+    background-color: #ff4f00;
+}
+.bg-0 {
+    background-color: rgba(0, 0, 0, 0.90);
+}
