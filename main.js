@@ -27,13 +27,19 @@ const subtract = document
     input = output;
     updateInput();
   });
+const del = document
+  .getElementById("DEL")
+  .addEventListener("click", function () {
+    output = output.substring(0, output.length - 1);
+    updateInput();
+  });
 
 
 const equals = document.getElementById("=").addEventListener("click",
   function() {
-      output = output.split(/(?=[+-/*])|(?<=[+-/*])/g);
+      output = output.split(/(?=[+-/\.])|(?<=[+-/\.])/g);
       console.log(output)
-      var temp = parseInt(output[0])
+      var temp = parseFloat(output[0])
       var sign = ""
       var notAllowed = ["+", "-", "/", "*"]
       for (var i = 0; i < output.length; i++){
@@ -42,17 +48,18 @@ const equals = document.getElementById("=").addEventListener("click",
               sign = output[i]
           }
 
-            if (sign == "+" && notAllowed.indexOf(output[i]) == -1 ){
-                temp += parseInt(output[i])
+            if (sign == "+" && notAllowed.indexOf(output[i]) == -1){
+                temp += parseFloat(output[i])
             }
-            if(sign == "-" && notAllowed.indexOf(output[i]) == -1){
-                temp -= parseInt(output[i])
+            if (sign == "-" && notAllowed.indexOf(output[i]) == -1){
+                temp -= parseFloat(output[i])
           }
           console.log(output[i], temp)
       }
       output = temp
 
       updateInput()
+      output = output.toString()
   }
 )
 
@@ -62,7 +69,7 @@ function updateInput() {
 
 // Event Listeners
 
-const funcs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"] 
+const funcs = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "dot"] 
 
 funcs.forEach(id => {
   const element = document.getElementById(id);
